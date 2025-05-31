@@ -1,0 +1,91 @@
+/* Print styles for the application */
+
+/* Hide elements that shouldn't be printed */
+@media print {
+  nav,
+  button,
+  .no-print,
+  form {
+    display: none !important;
+  }
+
+  /* Show print-only elements */
+  .header {
+    display: block !important;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Ensure the content takes the full page */
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Adjust table styles for printing */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  /* Ensure page breaks don't happen inside elements */
+  tr, .card {
+    page-break-inside: avoid;
+  }
+
+  /* Signature section styles */
+  .signature-section {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    page-break-inside: avoid;
+  }
+
+  .signature-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .signature-box {
+    width: 45%;
+  }
+
+  .signature-line {
+    border-bottom: 1px solid #000;
+    height: 40px;
+    margin: 5px 0;
+  }
+
+  .signature-name, .signature-title {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  .signature-date {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  /* Add page numbers */
+  @page {
+    margin: 1cm;
+  }
+
+  /* Adjust colors for better printing */
+  * {
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Make text more readable in print */
+  p, h1, h2, h3, h4, h5, h6 {
+    orphans: 3;
+    widows: 3;
+  }
+}
